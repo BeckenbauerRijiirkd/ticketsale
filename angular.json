@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ticketsale"
+    }
+  },
+  "defaultProject": "ticketsale",
+  "cli": {
+    "analytics": "b8ba4488-4646-40c2-948a-0dac02a1031f"
+  }
 }
