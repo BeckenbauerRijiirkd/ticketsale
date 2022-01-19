@@ -9,11 +9,12 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
   declarations: [HomeComponent, LoginComponent, NovoUsuarioComponent],
-  imports: [CommonModule, HomeRoutingModule, FormsModule, MensagemModule],
+  imports: [CommonModule, HomeRoutingModule, FormsModule, MensagemModule, NgxMaskModule.forChild()],
   exports:[HomeComponent]
 })
 export class HomeModule {}
