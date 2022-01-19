@@ -1,32 +1,32 @@
 <h4 class="text-center">Registre-se</h4>
 
-<form class="form mt-4">
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
   <div class="form-group">
-    <input placeholder="Nome Completo" class="form-control" />
+    <input placeholder="Nome Completo" class="form-control" formControlName="nome"/>
   </div>
 
   <div class="form-group">
-    <input type="date" placeholder="Data de Nascimento" class="form-control" />
+    <input type="date" placeholder="Data de Nascimento" class="form-control" formControlName="dataNascimento"/>
   </div>
 
   <div class="form-group">
-    <input placeholder="Cpf" class="form-control" mask="000.000.000-00" />
+    <input placeholder="Cpf" class="form-control" mask="000.000.000-00" formControlName="cpf"/>
   </div>
 
   <div class="form-group">
-    <input placeholder="Cidade" class="form-control" />
+    <input placeholder="Cidade" class="form-control" formControlName="cidade"/>
   </div>
 
   <div class="form-group">
-    <input placeholder="UF" class="form-control" mask="SS" />
+    <input placeholder="UF" class="form-control" mask="SS" formControlName="uf"/>
   </div>
 
   <div class="form-group">
-    <input type="email" placeholder="E-mail" class="form-control" />
+    <input type="email" placeholder="E-mail" class="form-control" formControlName="email" />
   </div>
 
   <div class="form-group">
-    <input type="password" placeholder="Senha" class="form-control" />
+    <input type="password" placeholder="Senha" class="form-control" formControlName="senha" />
   </div>
 
   <button class="btn btn-primary btn-block">Cadastro</button>
