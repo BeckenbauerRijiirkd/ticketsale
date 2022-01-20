@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { NovoUsuarioService } from './novo-usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NovoUsuario } from './novo-usuario';
 
 @Component({
@@ -13,29 +14,37 @@ export class NovoUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private NovoUsuarioService: NovoUsuarioService
+    private novoUsuarioService: NovoUsuarioService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.novoUsuarioForm = this.formBuilder.group({
-      nome: [''],
-
-      dataNascimento: [''],
-
-      cpf: [''],
-
-      cidade: [''],
-
-      uf: [''],
-
-      email: [''],
-
-      senha: [''],
+      nome:[''],
+      dataNascimento:[Date],
+      cpf:[''],
+      cidade:[''],
+      uf:[''],
+      email:[''],
+      senha:[''],
     });
   }
   cadastrar() {
-    const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
+    if (this.novoUsuarioForm.valid) {
+      const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
+      console.log(novoUsuario);
 
-    console.log(novoUsuario);
+      this.novoUsuarioService.cadastrarNovoUsuario(novoUsuario).subscribe(
+        () => {
+          alert("Usuario Criado Com Sucesso")
+          this.router.navigate(['']);
+        },
+        (error) => {
+
+          console.log(error);
+
+        }
+      );
+    }
   }
 }

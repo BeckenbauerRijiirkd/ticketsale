@@ -1,15 +1,15 @@
 export interface NovoUsuario {
-  nome: string;
+  nome:string;
 
-  dataNascimento: Date;
+  dataNascimento:Date;
 
-  cpf: string;
+  cpf:string;
 
-  cidade: string;
+  cidade:string;
 
-  uf: string;
+  uf:string;
 
-  email: string;
+  email:string;
 
-  senha: string;
+  senha:string;
 }
