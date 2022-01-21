@@ -1,6 +1,7 @@
 import { AutenticacaoService } from './../../autenticacao/autenticacao.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   email = 'teste@teste.com';
-  senha = '';
+  senha = '123456';
 
-  constructor(private authService: AutenticacaoService, private router:Router) {}
+  constructor(
+    private authService: AutenticacaoService,
+    private router: Router,
+    private usuarioService: UsuarioService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -19,14 +24,18 @@ export class LoginComponent implements OnInit {
     console.log(this.email);
     console.log(this.senha);
 
-    this.authService.autenticar(this.email, this.senha).subscribe(() => {
-      console.log("autenticado com sucesso!");
+    this.authService.autenticar(this.email, this.senha).subscribe(
+      (data) => {
+        console.log('autenticado com sucesso!');
+        console.log(data.body.token);
 
-      this.router.navigate(['cliente']);
+        this.usuarioService.salvaToken(data.body.token);
+
+        this.router.navigate(['cliente']);
       },
-        (error) => {
-          alert('Email ou senha invalidos');
-        }
+      (error) => {
+        alert('Email ou senha invalidos');
+      }
     );
   }
 }
