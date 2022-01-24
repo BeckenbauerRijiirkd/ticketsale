@@ -2,18 +2,18 @@
   <nav class="navbar navbar-light bg-white">
     <a class="navbar-brand">Ticket Sale</a>
     <div *ngIf="user$ | async as user">
-      <div *ngIf="user.name; else login">
-
-
-      <i class="fa fa-user-circule mr-1"> </i>
-      <a class="mr-1">{{ user.name }}</a>
-      <a (click)="logout()">Logout</a>
+      <div *ngIf="user.email; else login">
+        <i class="bi bi-person-circle"></i>
+        <a class="mr-1">{{ user.email }}</a>
+        <a (click)="logout()">Logout <i class="bi bi-box-arrow-left"></i></a>
+      </div>
     </div>
-  </div>
   </nav>
+
   <ng-template #login>
     <span class="navbar-text">
-      <a [routerLink]="['']">Login</a>
+      <a [routerLink]="['']">Login <i class="bi bi-box-arrow-in-right"></i></a>
+
     </span>
   </ng-template>
 </header>
