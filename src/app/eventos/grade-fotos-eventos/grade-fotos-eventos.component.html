@@ -2,13 +2,13 @@
 
 <div class="row">
 
-  <div *ngFor="let evento of eventos" class="col-4">
+  <div *ngFor="let evento of eventos" class="col-md-6 mb-2">
     <a [routerLink]="['/eventos',evento.id]"></a>
     <app-cartao>
       <app-evento [url]='evento.url'
       [nome]="evento.nome"></app-evento>
-      <i aria-hidden="true" class=" fas fa-dollar-sign-o fa-1x mr-2" >{{evento.valor}}</i>
-      <i aria-hidden="true" class="far fa-calendar-alt-o fa-1x mr-2 ml-2">{{evento.data}}</i>
+      <i aria-hidden="true" class=" bi bi-currency-dollar fa-1x mr-2" >{{evento.valor}}</i>
+      <i aria-hidden="true" class="bi bi-calendar-date fa-1x mr-2"> {{evento.data}}</i>
     </app-cartao>
   </div>
 
