@@ -14,7 +14,7 @@ export class EventoComponent implements OnInit {
   @Input() nome = '';
 
   @Input() set url(url: string) {
-    if (url.startsWith('data')) {
+    if (url.startsWith('data') || url.startsWith('http:')) {
       this.urlOriginal = url;
     } else {
       this.urlOriginal = `${API}/imgs/${url}`;
