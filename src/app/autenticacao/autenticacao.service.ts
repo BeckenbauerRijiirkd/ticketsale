@@ -4,7 +4,9 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {tap} from 'rxjs/operators';
 import { EmailValidator } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
+const API = environment.apiURL;
 export interface Token {
   tipo: string,
   token: string
@@ -21,7 +23,7 @@ export class AutenticacaoService {
 
   autenticar(email: string, senha: string): Observable<HttpResponse<any>> {
     return this.httpClient.post(
-      'http://localhost:8080/auth',
+      `${API}/auth`,
       {
         email: email,
         senha: senha,

@@ -3,8 +3,9 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Eventos } from './eventos';
+import { environment } from 'src/environments/environment';
 
-const API = `http://localhost:8080`;
+const API = environment.apiURL;
 @Injectable({
   providedIn: 'root',
 })
