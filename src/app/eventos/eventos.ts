@@ -4,6 +4,7 @@ export interface Evento {
   data: Date;
   valor: number;
   status: string;
+  url:string;
 }
 
 export type Eventos = Array<Evento>;
