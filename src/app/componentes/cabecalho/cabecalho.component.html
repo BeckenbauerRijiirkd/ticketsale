@@ -2,9 +2,9 @@
   <nav class="navbar navbar-light bg-white">
     <a class="navbar-brand">Ticket Sale</a>
     <div *ngIf="user$ | async as user">
-      <div *ngIf="user.email; else login">
+      <div *ngIf="user.name; else login">
         <i class="bi bi-person-circle"></i>
-        <a class="mr-1">{{ user.email }}</a>
+        <a class="mr-1">{{ user.name }}</a>
         <a (click)="logout()">Logout <i class="bi bi-box-arrow-left"></i></a>
       </div>
     </div>
