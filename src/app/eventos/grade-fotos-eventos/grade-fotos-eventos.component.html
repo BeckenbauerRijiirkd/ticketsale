@@ -7,12 +7,9 @@
     <a [routerLink]="['/eventos', evento.id]"></a>
     <app-cartao>
       <app-evento [url]="evento.url" [nome]="evento.nome"></app-evento>
-      <i aria-hidden="true" class="bi bi-currency-dollar fa-1x mr-2">{{
-        evento.valor
-      }}</i>
-      <i aria-hidden="true" class="bi bi-check-lg fa-1x mr-2">{{ evento.status }}</i>
-      <i aria-hidden="true" class="bi bi-calendar-date fa-1x mr-2">{{ evento.data }}</i
-      >
+      <div class="container">
+        <p>{{ evento.nome }}</p>
+      </div>
     </app-cartao>
   </div>
 </div>
