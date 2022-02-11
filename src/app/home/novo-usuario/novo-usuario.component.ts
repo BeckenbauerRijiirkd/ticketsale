@@ -21,11 +21,12 @@ export class NovoUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.novoUsuarioForm = this.formBuilder.group({
       nome:[''],
-      dataNascimento:[Date],
+      dataNascimento:[''],
       cpf:[''],
       cidade:[''],
       uf:[''],
       email:[''],
+      userName:[''],
       senha:[''],
     });
   }

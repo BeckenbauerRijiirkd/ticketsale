@@ -11,5 +11,7 @@ export interface NovoUsuario {
 
   email:string;
 
+  userName:string;
+
   senha:string;
 }
