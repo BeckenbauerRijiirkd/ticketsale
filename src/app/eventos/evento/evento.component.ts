@@ -9,17 +9,17 @@ const API = environment.apiURL;
   styleUrls: ['./evento.component.css'],
 })
 export class EventoComponent implements OnInit {
-  private urlOriginal = '';
+  private urlOriginal = 'https://ticketsale.vercel.app/assets/img/Trance-Music.jpg';
 
   @Input() nome = '';
 
-  @Input() set url(url: string) {
-    if (url.startsWith('data') || url.startsWith('http:')) {
-      this.urlOriginal = url;
-    } else {
-      this.urlOriginal = `${API}/imgs/${url}`;
-    }
-  }
+  // @Input() set url(url: string) {
+  //   if (url.startsWith('data') || url.startsWith('http:')) {
+  //     this.urlOriginal = url;
+  //   } else {
+  //     this.urlOriginal = `${API}/imgs/${url}`;
+  //   }
+  // }
 
   get url():string {
     return this.urlOriginal;
