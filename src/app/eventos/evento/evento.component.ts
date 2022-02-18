@@ -13,13 +13,13 @@ export class EventoComponent implements OnInit {
 
   @Input() nome = '';
 
-  // @Input() set url(url: string) {
-  //   if (url.startsWith('data') || url.startsWith('http:')) {
-  //     this.urlOriginal = url;
-  //   } else {
-  //     this.urlOriginal = `${API}/imgs/${url}`;
-  //   }
-  // }
+  @Input() set url(url: string) {
+    if (API.startsWith('http:')) {
+      this.urlOriginal = url;
+    } //else {
+    //   this.urlOriginal = `${API}/imgs/${url}`;
+    // }
+  }
 
   get url():string {
     return this.urlOriginal;
