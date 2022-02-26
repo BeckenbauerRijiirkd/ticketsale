@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgxMaskModule } from 'ngx-mask';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +21,9 @@ import { NgxMaskModule } from 'ngx-mask';
     NgxMaskModule.forRoot({ dropSpecialCharacters: false }),
     CabecalhoModule,
     RodapeModule,
+    BrowserAnimationsModule,
+    MatToolbarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
