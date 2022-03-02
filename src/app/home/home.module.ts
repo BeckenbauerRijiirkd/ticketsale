@@ -11,6 +11,9 @@ import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 
 import { NgxMaskModule } from 'ngx-mask';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   declarations: [HomeComponent, LoginComponent, NovoUsuarioComponent],
   imports: [
@@ -20,6 +23,8 @@ import { NgxMaskModule } from 'ngx-mask';
     MensagemModule,
     NgxMaskModule.forChild(),
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
   exports: [HomeComponent],
 })
