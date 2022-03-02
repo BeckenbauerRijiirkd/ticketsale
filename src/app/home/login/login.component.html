@@ -1,6 +1,6 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
+<form class="form mt-4 d-grid gap-2 mx-auto" (ngSubmit)="login()" #loginForm="ngForm">
   <div class="form-group">
     <input class="form-control" placeholder="Email"
     [(ngModel)]="email"
@@ -28,7 +28,7 @@
 
   <button
   type="submit"
-  class="btn btn-primary btn-block"
+  class="btn btn-primary"
   [disabled]="loginForm.invalid"
   >
   Login
