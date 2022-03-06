@@ -1,0 +1,15 @@
+<p class="text-center text-muted" *ngif="!eventos.length">
+  Desculpe nã há eventos
+</p>
+
+<div class="row">
+  <div *ngFor="let evento of eventos" class="col-md-6 mb-2">
+    <a [routerLink]="['/eventos', evento.id]"></a>
+    <app-cartao>
+      <app-evento [url]="evento.url" [nome]="evento.nome"></app-evento>
+      <div class="container">
+        <p>{{ evento.nome }}</p>
+      </div>
+    </app-cartao>
+  </div>
+</div>
