@@ -12,13 +12,11 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
-    <!-- BOX ICONS CSS-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- custom css -->
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+        <!-- BOX ICONS CSS-->
+        <link
+        href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+        rel="stylesheet"
+      />
   </head>
 
   <body>
@@ -31,17 +29,15 @@
         <a href="#" class="nav-link h3 text-black my-2">
           Ticket Sale
         </a>
-        <a [routerLink]="['']" class="nav-link">
-          <i class="bx bxs-dashboard"></i>
+        <a [routerLink]="['']" class="nav-link" style="  border-bottom-style: solid;
+        border-color: #ebebeb;">
+          <i class="bi bi-house"></i>
           <span class="mx-2">Home</span>
         </a>
-        <a [routerLink]="['cliente']" class="nav-link">
-          <i class="bx bx-user-check"></i>
-          <span class="mx-2">Profile</span>
-        </a>
-        <a [routerLink]="['']" class="nav-link">
-          <i class="bx bx-conversation"></i>
-          <span class="mx-2">Contact</span>
+        <a [routerLink]="['eventos']" class="nav-link" style="  border-bottom-style: solid;
+        border-color: #ebebeb;">
+          <i class="bi bi-calendar3"></i>
+          <span class="mx-2">Eventos</span>
         </a>
       </ul>
 
@@ -56,7 +52,7 @@
     <div class="p-1 my-container active-cont">
       <!-- Top Nav -->
       <nav class="navbar top-navbar navbar-light bg-light px-5" >
-        <a class="btn border-0" id="menu-btn"><i class="bx bx-menu"></i></a>
+        <a class="btn border-0" id="menu-btn" style="background-color: #0d6efd;"><i class="bx bx-menu"></i></a>
         <app-cabecalho></app-cabecalho>
       </nav>
       <!--End Top Nav -->
