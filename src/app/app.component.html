@@ -31,15 +31,15 @@
         <a href="#" class="nav-link h3 text-black my-2">
           Ticket Sale
         </a>
-        <a href="#" class="nav-link">
+        <a [routerLink]="['']" class="nav-link">
           <i class="bx bxs-dashboard"></i>
           <span class="mx-2">Home</span>
         </a>
-        <a href="#" class="nav-link">
+        <a [routerLink]="['']" class="nav-link">
           <i class="bx bx-user-check"></i>
           <span class="mx-2">Profile</span>
         </a>
-        <a href="#" class="nav-link">
+        <a [routerLink]="['']" class="nav-link">
           <i class="bx bx-conversation"></i>
           <span class="mx-2">Contact</span>
         </a>
@@ -69,16 +69,5 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-    <!-- custom js -->
-    <script>
-      console.log("SCRIPT INTERNPO")
-      var menu_btn = document.querySelector("#menu-btn");
-      var sidebar = document.querySelector("#sidebar");
-      var container = document.querySelector(".my-container");
-      menu_btn.addEventListener("click", () => {
-        sidebar.classList.toggle("active-nav");
-        container.classList.toggle("active-cont");
-      });
-    </script>
   </body>
 </html>
