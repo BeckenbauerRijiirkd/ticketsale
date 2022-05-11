@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    
+
 
     this.authService.autenticar(this.email, this.senha).subscribe(
       (data) => {
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
         this.usuarioService.salvaToken(data.body.token);
 
-        this.router.navigate(['cliente']);
+        this.router.navigate(['eventos']);
       },
       (error) => {
         alert('Email ou senha invalidos');
