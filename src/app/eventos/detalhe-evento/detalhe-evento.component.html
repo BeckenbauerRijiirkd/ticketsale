@@ -1,0 +1,30 @@
+<div class="bg-white border" *ngIf="evento$ | async as evento">
+
+  <div class="row">
+
+    <div class="col-lg-8">
+      <app-evento
+      [url]="evento.url"
+
+      ></app-evento>
+    </div>
+    <div class="col-lg-4">
+      <small>
+        <p class="text-left-break-word">Nome: {{ evento.nome}}</p>
+        <p class="text-left-break-word">Data: {{ evento.data}}</p>
+        <p class="text-left-break-word">Valor: {{ evento.valor}}</p>
+        <p class="text-left-break-word">Status: {{ evento.status}}</p>
+      </small>
+
+    </div>
+
+  </div>
+
+</div>
+<!--   id: number;
+  nome: string;
+  data: Date;
+  valor: number;
+  status: string;
+  url:string;
+ -->
