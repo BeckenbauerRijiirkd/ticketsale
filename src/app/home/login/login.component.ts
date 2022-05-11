@@ -22,6 +22,20 @@ export class LoginComponent implements OnInit {
 
   login() {
 
+    console.log('ONINIT');
+    //var btn_login = document.querySelector('#btn-login');
+
+
+    const element: HTMLElement = document.getElementById('btn-login') as HTMLElement
+    element.innerHTML = ''
+
+    console.log(element);
+    console.log('menu_btn');
+
+    element?.setAttribute("textContent"," ");
+    element?.setAttribute("class", "spinner-border")
+    console.log(element);
+
 
     this.authService.autenticar(this.email, this.senha).subscribe(
       (data) => {
@@ -34,6 +48,8 @@ export class LoginComponent implements OnInit {
       },
       (error) => {
         alert('Email ou senha invalidos');
+        element?.setAttribute("class", "")
+        element.innerHTML = 'Login'
       }
     );
   }
