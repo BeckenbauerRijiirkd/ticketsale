@@ -10,12 +10,61 @@
         <form class="form mt-4 d-grid gap-2 mx-auto" #loginForm="ngForm">
           <div class="form-group">
             <input
+              placeholder="Nome Completo"
               class="form-control"
-              placeholder="nome"
-              [(ngModel)]="perfil.nome"
-              name="nome"
-              #campoEmail="ngModel"
-              required
+              formControlName="nome"
+            />
+            <app-mensagem
+              *ngIf="
+                novoUsuarioForm.get('nome')?.errors &&
+                novoUsuarioForm.get('nome')?.touched
+              "
+              mensagem="Nome incorreto"
+            >
+            </app-mensagem>
+          </div>
+        
+          <div class="form-group">
+            <input
+              type="date"
+              placeholder="Data de Nascimento"
+              class="form-control"
+              formControlName="dataNascimento"
+            />
+          </div>
+        
+          <div class="form-group">
+            <input
+              placeholder="Cpf"
+              class="form-control" [dropSpecialCharacters] ="true"
+              mask="000.000.000-00"
+              formControlName="cpf"
+            />
+          </div>
+        
+          <div class="form-group">
+            <input placeholder="Cidade" class="form-control" formControlName="cidade" />
+          </div>
+          
+          <div class="form-group">
+            <input placeholder="Endereco" class="form-control" formControlName="endereço" />
+          </div>
+        
+          <div class="form-group">
+            <input
+              placeholder="UF"
+              class="form-control"
+              mask="SS"
+              formControlName="uf"
+            />
+          </div>
+        
+          <div class="form-group">
+            <input
+              type="email"
+              placeholder="E-mail"
+              class="form-control"
+              formControlName="email"
             />
           </div>
         </form>
