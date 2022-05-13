@@ -1,1 +1,23 @@
-<p>perfil works!</p>
+<div class="bg-white border" *ngIf="perfil$ | async as perfil">
+  <div class="row">
+    <div class="col-lg-8"></div>
+    <div class="col-lg-4">
+      <small>
+        <p class="text-left-break-word">Nome: {{ perfil.nome }}</p>
+      </small>
+
+      <form class="form mt-4 d-grid gap-2 mx-auto" #loginForm="ngForm">
+        <div class="form-group">
+          <input
+            class="form-control"
+            placeholder="nome"
+            [(ngModel)]="perfil.nome"
+            name="nome"
+            #campoEmail="ngModel"
+            required
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
