@@ -13,10 +13,16 @@ import { Observable } from 'rxjs';
 export class PerfilComponent implements OnInit {
   nome = '';
   perfil$!: Observable<Perfil>;
+  cpf: '' = "";
+  cidade: '' = "";
+  uf: '' = "";
+  compras: '' = "";
+
 
   constructor(private perfilService: PerfilService) {}
 
   ngOnInit(): void {
     this.perfil$ = this.perfilService.getPerfil(1);
+
   }
 }

@@ -1,74 +1,58 @@
-<div class="container">
-  <div class="bg-white border" *ngIf="perfil$ | async as perfil">
-    <div class="row">
-      <div class="col-lg-8"></div>
-      <div class="col-lg-4">
-        <small>
-          <p class="text-left-break-word">Nome: {{ perfil.nome }}</p>
-        </small>
+<p>perfil works!</p>
+<div class="bg-white border" *ngIf="perfil$ | async as perfil">
+  <div class="row">
+    <div class="col-lg-8"></div>
+    <div class="col-lg-4">
+      <small>
+        <p class="text-left-break-word">Nome: {{ perfil.nome }}</p>
+      </small>
 
-        <form class="form mt-4 d-grid gap-2 mx-auto" #loginForm="ngForm">
-          <div class="form-group">
+      <form class="form mt-4 d-grid gap-2 mx-auto" #loginForm="ngForm">
+        <div class="form-group">
+          <input
+            class="form-control"
+            placeholder="Nome"
+            [(ngModel)]="perfil.nome"
+            name="nome"
+          />
+        <div>
+          <input
+            class="form-control"
+            mask = "000.000.000-00"
+            placeholder="CPF"
+            [(ngModel)]="perfil.cpf"
+            formControlName="cpf"
+            required
+          />
+        </div>
+          <div>
+          <input
+            class="form-control"
+            placeholder="Cidade"
+            [(ngModel)]="perfil.cidade"
+            formControlName="cidade"
+            required
+          />
+        </div>
+          <div>
             <input
-              placeholder="Nome Completo"
-              class="form-control"
-              formControlName="nome"
-            />
-            <app-mensagem
-              *ngIf="
-                novoUsuarioForm.get('nome')?.errors &&
-                novoUsuarioForm.get('nome')?.touched
-              "
-              mensagem="Nome incorreto"
-            >
-            </app-mensagem>
+            class="form-control"
+            placeholder="UF"
+            [(ngModel)]="perfil.uf"
+            formControlName="uf"
+            required
+          />
           </div>
-        
-          <div class="form-group">
+          <div>
             <input
-              type="date"
-              placeholder="Data de Nascimento"
-              class="form-control"
-              formControlName="dataNascimento"
-            />
+            class="form-control"
+            placeholder="Compras"
+            [(ngModel)]="perfil.compras"
+            formControlName="compras"
+          />
           </div>
-        
-          <div class="form-group">
-            <input
-              placeholder="Cpf"
-              class="form-control" [dropSpecialCharacters] ="true"
-              mask="000.000.000-00"
-              formControlName="cpf"
-            />
-          </div>
-        
-          <div class="form-group">
-            <input placeholder="Cidade" class="form-control" formControlName="cidade" />
-          </div>
-          
-          <div class="form-group">
-            <input placeholder="Endereco" class="form-control" formControlName="endereço" />
-          </div>
-        
-          <div class="form-group">
-            <input
-              placeholder="UF"
-              class="form-control"
-              mask="SS"
-              formControlName="uf"
-            />
-          </div>
-        
-          <div class="form-group">
-            <input
-              type="email"
-              placeholder="E-mail"
-              class="form-control"
-              formControlName="email"
-            />
-          </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
