@@ -16,4 +16,8 @@ export class NovoUsuarioService {
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     return this.http.post(`${API}/clientes`, novoUsuario, {headers:headers});
   }
+
+  verificarCep(cep: String){
+    return this.http.get(`viacep.com.br/ws/${cep}/json/`)
+  }
 }
