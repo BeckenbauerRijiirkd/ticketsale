@@ -1,8 +1,11 @@
 import { Router } from '@angular/router';
 import { NovoUsuarioService } from './novo-usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NovoUsuario } from './novo-usuario';
+import { Endereco } from './endereco';
+import { Observable } from 'rxjs';
+import { first, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -12,6 +15,8 @@ import { NovoUsuario } from './novo-usuario';
 export class NovoUsuarioComponent implements OnInit {
   novoUsuarioForm!: FormGroup;
 
+  endereco$!: Observable<Endereco>;
+
   constructor(
     private formBuilder: FormBuilder,
     private novoUsuarioService: NovoUsuarioService,
@@ -20,14 +25,15 @@ export class NovoUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.novoUsuarioForm = this.formBuilder.group({
-      nome:[''],
-      dataNascimento:[''],
-      cpf:[''],
-      cidade:[''],
-      uf:[''],
-      email:[''],
-      userName:[''],
-      senha:[''],
+      nome: [''],
+      dataNascimento: [''],
+      cpf: [''],
+      cep: ['', [], [this.validarCep()]],
+      cidade: [''],
+      uf: [''],
+      email: [''],
+      userName: [''],
+      senha: [''],
     });
   }
   cadastrar() {
@@ -37,15 +43,28 @@ export class NovoUsuarioComponent implements OnInit {
 
       this.novoUsuarioService.cadastrarNovoUsuario(novoUsuario).subscribe(
         () => {
-          alert("Usuario Criado Com Sucesso")
+          alert('Usuario Criado Com Sucesso');
           this.router.navigate(['']);
         },
         (error) => {
-
           console.log(error);
-
         }
       );
     }
+  }
+
+  validarCep() {
+    return (control: AbstractControl) => {
+      return control.valueChanges.pipe(
+        switchMap((cep) => this.novoUsuarioService.verificarCep(cep)),
+        map(
+          (result) => (
+            this.novoUsuarioForm.get('cidade')?.setValue(result.localidade),
+            this.novoUsuarioForm.get('uf')?.setValue(result.uf)
+          )
+        ),
+        first()
+      );
+    };
   }
 }
