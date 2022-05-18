@@ -1,11 +1,12 @@
+import { ConsultaCepService } from './../../util/consulta-cep.service';
 import { Router } from '@angular/router';
 import { NovoUsuarioService } from './novo-usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { NovoUsuario } from './novo-usuario';
-import { Endereco } from './endereco';
 import { Observable } from 'rxjs';
 import { first, map, switchMap } from 'rxjs/operators';
+import { Endereco } from 'src/app/util/endereco';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -20,6 +21,7 @@ export class NovoUsuarioComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private novoUsuarioService: NovoUsuarioService,
+    private consultaCepService: ConsultaCepService,
     private router: Router
   ) {}
 
@@ -56,7 +58,7 @@ export class NovoUsuarioComponent implements OnInit {
   validarCep() {
     return (control: AbstractControl) => {
       return control.valueChanges.pipe(
-        switchMap((cep) => this.novoUsuarioService.verificarCep(cep)),
+        switchMap((cep) => this.consultaCepService.verificarCep(cep)),
         map(
           (result) => (
             this.novoUsuarioForm.get('cidade')?.setValue(result.localidade),
