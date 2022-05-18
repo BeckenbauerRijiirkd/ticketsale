@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     const element: HTMLElement = document.getElementById('btn-login') as HTMLElement
     element.innerHTML = ''
 
-    element?.setAttribute("class", "spinner-border")
+    element?.setAttribute("class", "spinner-border text-light spinner-border-sm")
 
     this.authService.autenticar(this.email, this.senha).subscribe(
       (data) => {
