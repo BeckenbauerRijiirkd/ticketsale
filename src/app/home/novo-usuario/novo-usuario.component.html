@@ -1,110 +1,140 @@
 <h4 class="text-center">Registre-se</h4>
 
 <form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
-  <div class="form-group">
-    <input
-      placeholder="Nome Completo"
-      class="form-control"
-      formControlName="nome"
-    />
-    <app-mensagem
-      *ngIf="
-        novoUsuarioForm.get('nome')?.errors &&
-        novoUsuarioForm.get('nome')?.touched
-      "
-      mensagem="Nome incorreto"
-    >
-    </app-mensagem>
-  </div>
-
-  <div class="form-group">
-    <input
-      type="date"
-      placeholder="Data de Nascimento"
-      class="form-control"
-      formControlName="dataNascimento"
-    />
-  </div>
-
-  <div class="form-group">
-    <input
-      placeholder="Cpf"
-      class="form-control" [dropSpecialCharacters] ="true"
-      mask="000.000.000-00"
-      formControlName="cpf"
-    />
-  </div>
-
-  <div class="form-group">
-    <input placeholder="Cep" class="form-control"
-    mask="00000-000"
-    formControlName="cep" />
-  </div>
-
-
-  <div class="form-group">
-    <input placeholder="Cidade" class="form-control" formControlName="cidade" />
-  </div>
-
-  <div class="form-group">
-    <input
-      placeholder="UF"
-      class="form-control"
-      mask="SS"
-      formControlName="uf"
-    />
-  </div>
-
-  <div class="form-group">
-    <input
-      type="email"
-      placeholder="E-mail"
-      class="form-control"
-      formControlName="email"
-    />
-    <app-mensagem
-      *ngIf="
-        novoUsuarioForm.get('email')?.errors?.required &&
-        novoUsuarioForm.get('email')?.touched
-      "
-      mensagem="Email Obrigatório"
-    ></app-mensagem>
-    <app-mensagem
-      *ngIf="
-        novoUsuarioForm.get('email')?.errors?.email &&
-        novoUsuarioForm.get('email')?.touched
-      "
-      mensagem="E-mail no formato incorreto"
-    >
-    </app-mensagem>
-  </div>
-
-  <div class="form-group">
-    <input
-      type="text"
-      placeholder="Nome De Usuario"
-      class="form-control"
-      formControlName="userName"
-    />
-    <app-mensagem
-      *ngIf="
-        novoUsuarioForm.get('userName')?.errors?.required &&
-        novoUsuarioForm.get('userName')?.touched
-      "
-      mensagem="Nome de Usuario Obrigatório"
-    ></app-mensagem>
+  <div class="row mt-3 md-n5">
+    <div class="col-md-7">
+      <div class="form-group">
+        <input
+          placeholder="Nome Completo"
+          class="form-control"
+          formControlName="nome"
+        />
+        <app-mensagem
+          *ngIf="
+            novoUsuarioForm.get('nome')?.errors &&
+            novoUsuarioForm.get('nome')?.touched
+          "
+          mensagem="Nome incorreto"
+        >
+        </app-mensagem>
+      </div>
     </div>
-
-  <div class="form-group">
-    <input
-      type="password"
-      placeholder="Senha"
-      class="form-control"
-      formControlName="senha"
-    />
+    <div class="col-md-5">
+      <div class="form-group">
+        <input
+          placeholder="Cpf"
+          class="form-control"
+          [dropSpecialCharacters]="true"
+          mask="000.000.000-00"
+          formControlName="cpf"
+        />
+      </div>
+    </div>
   </div>
 
-  <button class="btn btn-primary btn-block">Cadastro</button>
+  <div class="row mt-3 md-n5">
+    <div class="col-md-7">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Nome De Usuario"
+          class="form-control"
+          formControlName="userName"
+        />
+        <app-mensagem
+          *ngIf="
+            novoUsuarioForm.get('userName')?.errors?.required &&
+            novoUsuarioForm.get('userName')?.touched
+          "
+          mensagem="Nome de Usuario Obrigatório"
+        ></app-mensagem>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group">
+        <input
+          type="date"
+          placeholder="Data de Nascimento"
+          class="form-control"
+          formControlName="dataNascimento"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3 md-n5">
+    <div class="col-md-7">
+      <div class="form-group">
+        <input
+          placeholder="Cep"
+          class="form-control"
+          mask="00000-000"
+          formControlName="cep"
+        />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <input
+          class="form-control"
+          placeholder="Cidade"
+          formControlName="cidade"
+        />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <input
+          placeholder="UF"
+          class="form-control"
+          mask="SS"
+          formControlName="uf"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3 md-n5">
+    <div class="col-md-7 ">
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="E-mail"
+          class="form-control"
+          formControlName="email"
+        />
+        <app-mensagem
+          *ngIf="
+            novoUsuarioForm.get('email')?.errors?.required &&
+            novoUsuarioForm.get('email')?.touched
+          "
+          mensagem="Email Obrigatório"
+        ></app-mensagem>
+        <app-mensagem
+          *ngIf="
+            novoUsuarioForm.get('email')?.errors?.email &&
+            novoUsuarioForm.get('email')?.touched
+          "
+          mensagem="E-mail no formato incorreto"
+        >
+        </app-mensagem>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Senha"
+          class="form-control"
+          formControlName="senha"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="d-grid gap-2 col-2 mt-3 mx-auto">
+
+      <button class="btn btn-primary btn-block">Cadastro</button>
+
+  </div>
 </form>
 
-<p>Já é um usuário?<a [routerLink]="['']"> Faça login!</a></p>
+<p class="mt-2">Já é um usuário? <a [routerLink]="['']">Faça login!</a></p>

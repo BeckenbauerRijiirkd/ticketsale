@@ -1,38 +1,53 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4 d-grid gap-2 mx-auto" (ngSubmit)="login()" #loginForm="ngForm">
-  <div class="form-group">
-    <input class="form-control" placeholder="Email"
-    [(ngModel)]="email"
-    name="email"
-    #campoEmail="ngModel"
-    required
-    />
-    <app-mensagem
-    *ngIf="campoEmail.invalid && campoEmail.touched"
-    mensagem="Email Obrigatorio!"></app-mensagem>
+<form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
+  <div class="row mt-3 md-n5 justify-content-center">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input
+          class="form-control"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          #campoEmail="ngModel"
+          required
+        />
+        <app-mensagem
+          *ngIf="campoEmail.invalid && campoEmail.touched"
+          mensagem="Email Obrigatorio!"
+        ></app-mensagem>
+      </div>
+    </div>
   </div>
-
-  <div class="form-group">
-    <input class="form-control" type="password" placeholder="Senha"
-    [(ngModel)]="senha"
-    name="senha"
-    #campoSenha="ngModel"
-    required
-    />
-    <app-mensagem
-    *ngIf="campoSenha.invalid && campoSenha.touched"
-    mensagem="Senha Obrigatorio!"></app-mensagem>
-
+  <div class="row mt-3 md-n5 justify-content-center">
+    <div class="col-md-6">
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="password"
+          placeholder="Senha"
+          [(ngModel)]="senha"
+          name="senha"
+          #campoSenha="ngModel"
+          required
+        />
+        <app-mensagem
+          *ngIf="campoSenha.invalid && campoSenha.touched"
+          mensagem="Senha Obrigatorio!"
+        ></app-mensagem>
+      </div>
+    </div>
   </div>
-
-  <button
-  type="submit"
-  class="btn btn-primary"
-  [disabled]="loginForm.invalid"
-  >
-  <i id="btn-login">Login</i>
-</button>
+  <div class="d-grid gap-2 col-2 mt-3 mx-auto">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="loginForm.invalid"
+    >
+      <a id="btn-login">Login</a>
+    </button>
+  </div>
 </form>
-
-<p>Não é um usuário?<a [routerLink]="['novousuario']"> Se cadastre!</a></p>
+<div class="row mt-3 md-n5 text-center">
+  <p>Não é um usuário? <a [routerLink]="['novousuario']">Se cadastre!</a></p>
+</div>
