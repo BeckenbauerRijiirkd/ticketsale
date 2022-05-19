@@ -1,10 +1,10 @@
-<p>perfil works!</p>
+
 <div class="bg-white border" *ngIf="perfil$ | async as perfil">
   <div class="row">
     <div class="col-lg-8"></div>
     <div class="col-lg-4">
       <small>
-        <p class="text-left-break-word">Nome: {{ perfil.nome }}</p>
+        <p class="text-left-break-word">Editar Perfil</p>
       </small>
 
       <form class="form mt-4 d-grid gap-2 mx-auto" #loginForm="ngForm">
@@ -52,6 +52,8 @@
           />
           </div>
         </div>
+        <button class="btn btn-primary btn-block">Alterar</button>
+        <button class="btn btn-primary btn-block">Cancelar</button>
       </form>
     </div>
   </div>
