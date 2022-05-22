@@ -1,10 +1,9 @@
-import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/autenticacao/usuario/usuario.service';
+import { Usuario } from './../autenticacao/usuario/usuario';
 import { Component, OnInit } from '@angular/core';
 import { PerfilService } from './perfil.service';
 import { Perfil } from './perfil';
 import { Observable } from 'rxjs';
-import { FormBuilder,Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-perfil',
@@ -12,20 +11,15 @@ import { FormBuilder,Validators } from '@angular/forms';
   styleUrls: ['./perfil.component.css'],
 })
 export class PerfilComponent implements OnInit {
-  nome = [''];
+  nome = '';
   perfil$!: Observable<Perfil>;
-  cpf = ['']
-  cidade = ['']
-  uf = ['']
-  compras = ['']
+  cpf: '' = "";
+  cidade: '' = "";
+  uf: '' = "";
+  compras: '' = "";
 
 
-  constructor(
-    private perfilService: PerfilService,
-    private formBuilder: FormBuilder,
-    private router: Router
-    )
-    {}
+  constructor(private perfilService: PerfilService) {}
 
   ngOnInit(): void {
     this.perfil$ = this.perfilService.getPerfil(1);

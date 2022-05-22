@@ -13,6 +13,7 @@ const API = environment.apiURL;
   providedIn: 'root',
 })
 export class PerfilService {
+  
   // user$ = this.usuarioService.retornaUsuario()
 
   constructor(
