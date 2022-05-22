@@ -1,0 +1,52 @@
+<h4 class="text-center">Editar Perfil</h4>
+
+<div class="bg-white border" *ngIf="perfil$ | async as perfil">
+  <div class="container d-flex justify-content-center">
+    <div class="col-lg-4">
+      <form class="form mt-4 d-grid gap-2 mx-auto" #loginForm="ngForm">
+        <div class="form-group">
+          <input
+            class="form-control"
+            placeholder="nome"
+            [(ngModel)]="perfil.nome"
+            name="nome"
+            #campoEmail="ngModel"
+            required
+          />
+          <input
+            class="form-control"
+            placeholder="cpf"
+            [(ngModel)]="perfil.cpf"
+            name="cpf"
+            #campoEmail="ngModel"
+            required
+          />
+          <input
+            class="form-control"
+            placeholder="cidade"
+            [(ngModel)]="perfil.cidade"
+            name="cidade"
+            #campoEmail="ngModel"
+            required
+          />
+          <input
+            class="form-control"
+            placeholder="uf"
+            [(ngModel)]="perfil.uf"
+            name="uf"
+            #campoEmail="ngModel"
+            required
+          />
+          <input
+            class="form-control"
+            placeholder="compras"
+            [(ngModel)]="perfil.compras"
+            name="compras"
+            #campoEmail="ngModel"
+            required
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

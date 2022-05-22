@@ -1,7 +1,7 @@
 <p class="text-center text-muted" *ngif="!eventos.length">
   Desculpe nã há eventos
 </p>
-
+<div class="container">
 <div class="row">
   <div *ngFor="let evento of eventos" class="col-md-6 mb-2">
     <a [routerLink]="['/eventos', evento.id]">
@@ -15,4 +15,5 @@
 
     </a>
   </div>
+</div>
 </div>
