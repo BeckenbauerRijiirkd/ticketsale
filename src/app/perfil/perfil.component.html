@@ -1,5 +1,7 @@
 <h4 class="text-center">Editar Perfil</h4>
 
+<form class="form mt-4" [formGroup]="alterarUsuarioForm" (submit)="alterar()"></form>
+
 <div class="bg-white border" *ngIf="perfil$ | async as perfil">
   <div class="container d-flex justify-content-center">
     <div class="col-lg-4">
@@ -18,7 +20,7 @@
             placeholder="cpf"
             [(ngModel)]="perfil.cpf"
             name="cpf"
-            #campoEmail="ngModel"
+            formControlName="cpf"
             required
           />
           <input
@@ -26,7 +28,7 @@
             placeholder="cidade"
             [(ngModel)]="perfil.cidade"
             name="cidade"
-            #campoEmail="ngModel"
+            formControlName="cidade"
             required
           />
           <input
@@ -34,7 +36,7 @@
             placeholder="uf"
             [(ngModel)]="perfil.uf"
             name="uf"
-            #campoEmail="ngModel"
+            formControlName="ngModel"
             required
           />
           <input
@@ -42,7 +44,7 @@
             placeholder="compras"
             [(ngModel)]="perfil.compras"
             name="compras"
-            #campoEmail="ngModel"
+            formControlName="ngModel"
             required
           />
         </div>
