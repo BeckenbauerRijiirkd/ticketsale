@@ -1,11 +1,9 @@
 <h4 class="text-center">Editar Perfil</h4>
 
-<form class="form mt-4" [formGroup]="alterarUsuarioForm" (submit)="alterar()"></form>
-
-<div class="bg-white border" *ngIf="perfil$ | async as perfil">
+<<div class="bg-white border" *ngIf="perfil$ | async as perfil">
   <div class="container d-flex justify-content-center">
     <div class="col-lg-4">
-      <form class="form mt-4 d-grid gap-2 mx-auto" #loginForm="ngForm">
+      <form class="form mt-4 d-grid gap-2 mx-auto" [formGroup]="alterarUsuarioForm" (submit)="alterar()">
         <div class="form-group">
           <input
             class="form-control"
@@ -20,6 +18,7 @@
             placeholder="cpf"
             [(ngModel)]="perfil.cpf"
             name="cpf"
+            mask = "000.000.000-00"
             formControlName="cpf"
             required
           />
