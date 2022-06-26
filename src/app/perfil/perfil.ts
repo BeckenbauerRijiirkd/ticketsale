@@ -5,4 +5,5 @@ export interface Perfil {
   cidade: string;
   uf: string;
   compras: string;
+  dataNascimento: Date;
 }

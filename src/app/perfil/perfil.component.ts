@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { PerfilService } from './perfil.service';
 import { Perfil } from './perfil';
 import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
@@ -11,18 +12,41 @@ import { Observable } from 'rxjs';
   styleUrls: ['./perfil.component.css'],
 })
 export class PerfilComponent implements OnInit {
-  nome = '';
   perfil$!: Observable<Perfil>;
-  cpf: '' = "";
-  cidade: '' = "";
-  uf: '' = "";
-  compras: '' = "";
+  alterarUsuarioForm!: FormGroup;
+  perf!: Perfil;
 
-
-  constructor(private perfilService: PerfilService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private perfilService: PerfilService
+  ) {}
 
   ngOnInit(): void {
-    this.perfil$ = this.perfilService.getPerfil(1);
+    this.alterarUsuarioForm = this.formBuilder.group({
+      nome: [''],
+      cpf: [''],
+      cep: [''],
+      cidade: [''],
+      uf: [''],
+      compras: [''],
+      dataNascimento: Date,
+      email: [''],
+    });
 
+    this.perfil$ = this.perfilService.getPerfil(1);
+  }
+
+  alterar() {
+    console.log(this.alterarUsuarioForm);
+
+    this.perf = this.alterarUsuarioForm.value;
+    this.perfilService.putPerfil(1, this.perf).subscribe(
+      () => {
+        alert('Atualizado');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
