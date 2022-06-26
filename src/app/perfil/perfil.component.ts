@@ -28,6 +28,8 @@ export class PerfilComponent implements OnInit {
       cep: [''],
       cidade: [''],
       uf: [''],
+      compras: [''],
+      dataNascimento: Date,
       email: [''],
     });
 
