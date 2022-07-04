@@ -21,7 +21,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    
+
+    const element: HTMLElement = document.getElementById('btn-login') as HTMLElement
+    element.innerHTML = ''
+
+    element?.setAttribute("class", "spinner-border text-light spinner-border-sm")
 
     this.authService.autenticar(this.email, this.senha).subscribe(
       (data) => {
@@ -30,10 +34,12 @@ export class LoginComponent implements OnInit {
 
         this.usuarioService.salvaToken(data.body.token);
 
-        this.router.navigate(['cliente']);
+        this.router.navigate(['eventos']);
       },
       (error) => {
         alert('Email ou senha invalidos');
+        element?.setAttribute("class", "")
+        element.innerHTML = 'Login'
       }
     );
   }

@@ -2,7 +2,7 @@ import { TokenService } from './../autenticacao/token.service';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Eventos } from './eventos';
+import { Evento, Eventos } from './eventos';
 import { environment } from 'src/environments/environment';
 
 const API = environment.apiURL;
@@ -18,5 +18,11 @@ export class EventosService {
     return this.http.get<Eventos>(`${API}/eventos`, {
       headers,
     });
+  }
+
+  buscarPorId(id: number): Observable<Evento>{
+
+    return this.http.get<Evento>(`${API}/eventos/${id}`);
+
   }
 }

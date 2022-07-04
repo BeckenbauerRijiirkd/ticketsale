@@ -1,0 +1,89 @@
+
+<div class="container col-md-8">
+  <div class="bg-white" *ngIf="(evento$ | async) == undefined">
+    <div class="d-flex justify-content-center mt-5" style="size: 300px">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white border" *ngIf="evento$ | async as evento">
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide-to="2"
+        ></button>
+      </div>
+
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <app-evento [url]="evento.url"></app-evento>
+        </div>
+        <div class="carousel-item">
+          <app-evento [url]="evento.url"></app-evento>
+        </div>
+        <div class="carousel-item">
+          <app-evento [url]="evento.url"></app-evento>
+        </div>
+      </div>
+
+      <!-- Left and right controls/icons -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#demo"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <div class="container-fluid mt-3">
+      <div class="row mx-md-n5">
+        <p class="col py-3 px-md-5">
+          <i class="bi bi-ticket-detailed"></i>
+          <b> Nome:</b> {{ evento.nome }}
+        </p>
+        <p class="col py-3 px-md-5">
+          <i class="bi bi-calendar3"></i>
+          <b> Data:</b> {{ evento.data }}
+        </p>
+      </div>
+      <div class="row mx-md-n5">
+        <p class="col py-3 px-md-5">
+          <i class="bi bi-currency-dollar"></i>
+          <b> Valor:</b> {{ evento.valor }}
+        </p>
+        <p class="col py-3 px-md-5">
+          <i class="bi bi-check2-all"></i>
+          <b> Status:</b> {{ evento.status }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

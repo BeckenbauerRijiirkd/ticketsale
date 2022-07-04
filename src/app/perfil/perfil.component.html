@@ -1,0 +1,93 @@
+<h4 class="text-center">Editar Perfil</h4>
+
+<div class="bg-white border" *ngIf="perfil$ | async as perfil">
+  <div class="container d-flex justify-content-center">
+    <form
+      class="form mt-4"
+      [formGroup]="alterarUsuarioForm"
+      (submit)="alterar()"
+    >
+      <div class="d-grid gap-2 col-12 mt-3 mx-auto">
+        <div class="row mt-3 md-n5">
+          <div class="form-group col-md-6">
+            <a>Nome</a>
+            <input
+            class="form-control"
+              placeholder="nome"
+              [(ngModel)]="perfil.nome"
+              name="nome"
+              formControlName="nome"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <a>CPF</a>
+            <input
+              class="form-control"
+              readonly
+              placeholder="cpf"
+              [(ngModel)]="perfil.cpf"
+              name="cpf"
+              mask="000.000.000-00"
+              formControlName="cpf"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mt-3 md-n5">
+          <div class="form-group col-md-6">
+            <a>Data de Nascimento</a>
+            <input
+              class="form-control"
+              type="date"
+              placeholder="data de nascimento"
+              [(ngModel)]="perfil.dataNascimento"
+              name="dataNascimento"
+              formControlName="dataNascimento"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <a>Cidade</a>
+            <input
+              class="form-control"
+              placeholder="cidade"
+              [(ngModel)]="perfil.cidade"
+              name="cidade"
+              formControlName="cidade"
+              required
+            />
+          </div>
+        </div>
+        <div class="row mt-3 md-n5">
+          <div class="form-group col-md-6">
+            <a>UF</a>
+            <input
+              class="form-control"
+              placeholder="uf"
+              [(ngModel)]="perfil.uf"
+              name="uf"
+              formControlName="uf"
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <a>Compras</a>
+            <input
+              class="form-control"
+              readonly
+              placeholder="compras"
+              [(ngModel)]="perfil.compras"
+              name="compras"
+              formControlName="compras"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="d-grid gap-2 col-2 mt-3 mx-auto">
+        <button class="btn btn-primary btn-block">alterar</button>
+      </div>
+    </form>
+  </div>
+</div>

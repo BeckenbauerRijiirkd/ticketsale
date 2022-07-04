@@ -12,8 +12,16 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule)
   },
   {
-    path:'cliente',
+    path:'eventos',
     loadChildren:()=> import('./eventos/eventos.module').then((m) => m.EventosModule)
+  },
+  {
+    path:'cliente',
+    loadChildren:()=> import('./cliente/cliente.module').then((m) => m.ClienteModule)
+  },
+  {
+    path:'perfil',
+    loadChildren:()=> import('./perfil/perfil.module').then((m) => m.PerfilModule)
   }
 ];
 

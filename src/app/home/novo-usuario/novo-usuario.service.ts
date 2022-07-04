@@ -13,7 +13,9 @@ export class NovoUsuarioService {
   constructor(private http: HttpClient) {}
 
   cadastrarNovoUsuario(novoUsuario: NovoUsuario) {
-    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-    return this.http.post(`${API}/clientes`, novoUsuario, {headers:headers});
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+    });
+    return this.http.post(`${API}/clientes`, novoUsuario, { headers: headers });
   }
 }

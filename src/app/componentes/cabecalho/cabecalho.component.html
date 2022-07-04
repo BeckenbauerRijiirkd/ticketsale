@@ -1,6 +1,5 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-light bg-white">
-    <a class="navbar-brand">Ticket Sale</a>
+  <nav class="navbar navbar-light bg">
     <div *ngIf="user$ | async as user">
       <div *ngIf="user.name; else login">
         <i class="bi bi-person-circle"></i>

@@ -20,10 +20,16 @@ export class UsuarioService {
     const token = this.tokenService.retornaToken();
     const usuario = jwt_decode(token) as Usuario;
     this.usuarioSubject.next(usuario);
+    return usuario;
   }
 
   retornaUsuario() {
     return this.usuarioSubject.asObservable();
+  }
+
+  retornaUser() {
+    const usuario = this.decodificaJWT() as Usuario;
+    return usuario;
   }
 
   salvaToken(token: string) {
